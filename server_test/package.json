@@ -1,0 +1,19 @@
+{
+  "name": "panorama-stitching-server",
+  "version": "1.0.0",
+  "description": "A Node.js server for handling image uploads and stitching.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.1",
+    "multer": "^1.4.4"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.0.0"
+  }
+}

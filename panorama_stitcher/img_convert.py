@@ -1,7 +1,8 @@
 from io import BytesIO
 import os
 from typing import Iterable, List, Optional, Union
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 # to convert heic images (ios supremacy)
 try:

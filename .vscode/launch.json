@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Server Test",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/server_test/src/server.js",
+      "cwd": "${workspaceFolder}/server_test",
+      "console": "integratedTerminal"
+    }
+  ]
+}
