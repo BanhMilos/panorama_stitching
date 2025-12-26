@@ -38,16 +38,36 @@ router.post('', upload.array('files', 50), async (req, res) => {
     try {
         await waitForFilesStable(filePaths, 5000);
         await panoramaProcess();       
-        const outputData = readFileSync(join(outputDir, 'panorama.jpg')).toString('base64');
+        const panorama = readFileSync(join(outputDir, 'panorama.jpg')).toString('base64');
+        const left = readFileSync(join(outputDir, 'panorama_left.jpg')).toString('base64');
+        const right = readFileSync(join(outputDir, 'panorama_right.jpg')).toString('base64');
+        const top = readFileSync(join(outputDir, 'panorama_top.jpg')).toString('base64');
+        const bottom = readFileSync(join(outputDir, 'panorama_bottom.jpg')).toString('base64');
+        const front = readFileSync(join(outputDir, 'panorama_front.jpg')).toString('base64');
+        const back = readFileSync(join(outputDir, 'panorama_back.jpg')).toString('base64');
+
         return res.status(200).json({
+            result: 'success',
             message: 'Panorama stitched successfully',
-            data: outputData
+            panorama: panorama,
+            left : left,
+            right : right,
+            top : top,
+            bottom : bottom,
+            front : front,
+            back : back
         });
     } catch (error) {
-        return res.json({
-            result : 'failed',
-            message: error.reason,
-            reason: error.reason,
+        console.error('Panorama processing error:', error);
+        return res.status(400).json({
+            result: 'failed',
+            message: error.reason || error.message || 'Unknown error occurred',
+            reason: error.reason || error.message || 'Unknown error occurred',
+            details: {
+                code: error.code,
+                stdout: error.stdout,
+                stderr: error.stderr
+            }
         });
     }
 });

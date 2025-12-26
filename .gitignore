@@ -1,2 +1,3 @@
 server_test/.env
 node_modules
+*.jpg
