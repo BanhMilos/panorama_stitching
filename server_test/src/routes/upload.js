@@ -27,6 +27,7 @@ const storage = diskStorage({
 
 const upload = multer({ storage: storage });
 
+// Upload many files and process panorama (for /uploadMany endpoint)
 router.post('', upload.array('files', 50), async (req, res) => {
     console.log(`Received upload request ${req}`);
     if (!req.files || req.files.length === 0) {

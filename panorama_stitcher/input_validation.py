@@ -39,12 +39,12 @@ def load_and_validate_images(unconverted_dir: Path) -> Tuple[List[np.ndarray], O
             return [], f"Image {i} byte buffer is empty"
 
         img = cv2.imdecode(np.frombuffer(data, np.uint8), cv2.IMREAD_COLOR)
-        if img is None:
-            return [], f"Image {i} could not be decoded"
+        # if img is None:
+        #     return [], f"Image {i} could not be decoded"
 
-        h, w = img.shape[:2]
-        if h == 0 or w == 0:
-            return [], f"Image {i} has invalid size {w}x{h}"
+        # h, w = img.shape[:2]
+        # if h == 0 or w == 0:
+        #     return [], f"Image {i} has invalid size {w}x{h}"
 
         imgs.append(img)
 
