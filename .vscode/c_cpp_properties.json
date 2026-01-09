@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "defines": [],
+            "compilerPath": "/usr/bin/clang++",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/homebrew/include/opencv4"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64",
+            "compilerArgs": [
+                "export PKG_CONFIG_PATH=\"/opt/homebrew/lib/pkgconfig\"",
+                "clang++ -std=c++17 stitch.cpp -o stitch `pkg-config --cflags --libs opencv4`"
+            ]
+        }
+    ],
+    "version": 4
+}
